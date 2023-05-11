@@ -30,5 +30,5 @@ LV is a dictionary, labels in lv_labels and values in lv_values, it contains any
 values and lv_values both point to argv, and lv_labels points to argv + 1, as to ignore the dash('-')
 
 when done with the data, call
-`carg_parse_free(data)`
+`carg_parse_free(carg_parse_data* data)`
 to free the data
