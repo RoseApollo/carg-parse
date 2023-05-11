@@ -1,0 +1,22 @@
+#ifndef CARG_PARSE
+#define CARG_PARSE
+
+#include <stdio.h>
+#include <stdint.h>
+
+typedef struct 
+{
+    char* exec_name;
+
+    uint32_t values_len;
+    char** values;
+
+    uint32_t lv_len;
+    char** lv_labels;
+    char** lv_values;
+} carg_parse_data;
+
+carg_parse_data* carg_parse(int argc, char** argv);
+void carg_parse_free(carg_parse_data* data);
+
+#endif
