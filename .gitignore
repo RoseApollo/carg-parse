@@ -54,5 +54,3 @@ dkms.conf
 test
 test.elf
 test.exe
-
-stress.log
