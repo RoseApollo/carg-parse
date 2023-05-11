@@ -25,7 +25,7 @@ carg_parse_data* carg_parse(int argc, char** argv)
         {
             lv_labels[lv_cp] = argv[i] + 1;
 
-            if (argc >= i + 1 && argv[i + 1][0] != '-')
+            if (argc > i + 1 && argv[i + 1][0] != '-')
             {
                 i++;
 
