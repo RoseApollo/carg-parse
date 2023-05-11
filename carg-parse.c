@@ -1,10 +1,7 @@
 // c argument parser - Rose (github.com/AUnicornWithNoLife)
 
 #include "carg-parse.h"
-#include <stdio.h>
-#include <stdint.h>
 #include <stdlib.h>
-#include <string.h>
 
 carg_parse_data* carg_parse(int argc, char** argv)
 {

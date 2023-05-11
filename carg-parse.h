@@ -1,7 +1,8 @@
+// c argument parser - Rose (github.com/AUnicornWithNoLife)
+
 #ifndef CARG_PARSE
 #define CARG_PARSE
 
-#include <stdio.h>
 #include <stdint.h>
 
 typedef struct 
