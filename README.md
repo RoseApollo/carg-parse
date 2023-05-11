@@ -9,7 +9,7 @@ for a full example of usage look at test.c
 Call
 `carg_parse(int argc, char** argv)`
 it will return a struct containing:
-```
+```c
 typedef struct 
 {
     char* exec_name;
