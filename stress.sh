@@ -57,7 +57,7 @@ for (( i = 0; i < ITERATIONS; i++ )); do
   if [[ $exit_code -eq 139 ]]; then
     echo "Segfault detected!"
     echo "Arguments: $arguments" >> "$LOG_FILE"
-    break
+    exit 1  # Exit the script with an error
   fi
   echo "-----------------------------------------"
 done
