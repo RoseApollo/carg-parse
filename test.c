@@ -1,4 +1,4 @@
-// (TESTER FOR) c argument parser - Rose (github.com/AUnicornWithNoLife)
+// c argument parser (TESTER) - Rose (github.com/AUnicornWithNoLife)
 
 #include <stdio.h>
 #include "carg-parse.h"
