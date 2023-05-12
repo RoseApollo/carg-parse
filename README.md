@@ -8,7 +8,7 @@ for a full example of usage look at test.c
 
 Call
 `carg_parse(int argc, char** argv)`
-it will return a struct containing:
+it will return `carg_parse_data*` containing:
 ```c
 typedef struct 
 {
@@ -31,4 +31,4 @@ values and lv_values both point to argv, and lv_labels points to argv + 1, as to
 
 when done with the data, call
 `carg_parse_free(carg_parse_data* data)`
-to free the data
+to free the data, it does not free the individual values and labels, as these just point to the values in argv, so if you have moved / modified these pointers, you will have to free them yourself.
