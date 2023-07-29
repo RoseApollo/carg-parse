@@ -30,6 +30,13 @@ int main(int argc, char** argv)
         }
     }
 
+	printf("\nFLAGS:\n");
+
+	for (uint32_t i = 0; i < data->flags_len; i++)
+	{
+		printf("%d :-: %s\n", i, data->flags[i]);
+	}
+
     carg_parse_free(data);
 
     return 0;

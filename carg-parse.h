@@ -15,6 +15,9 @@ typedef struct
     uint32_t lv_len;
     char** lv_labels;
     char** lv_values;
+
+	uint32_t flags_len;
+	char** flags;
 } carg_parse_data;
 
 carg_parse_data* carg_parse(int argc, char** argv);

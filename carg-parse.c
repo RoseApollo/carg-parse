@@ -14,26 +14,38 @@ carg_parse_data* carg_parse(int argc, char** argv)
     char **lv_values = (char**)malloc(sizeof(char*) * argc);
     uint32_t lv_cp = 0;
 
+	char **flags = (char**)malloc(sizeof(char*) * argc);
+	uint32_t flags_cp = 0;
+
     data->exec_name = argv[0];
 
     for (int i = 1; i < argc; i++)
     {
-        if (argv[i][0] == '-') // label
+        if (argv[i][0] == '-') // label / flag
         {
-            lv_labels[lv_cp] = argv[i] + 1;
+			if (argv[i][1] != '\0' && argv[i][1] == '-') // flag
+			{
+				flags[flags_cp] = argv[i] + 2;
 
-            if (argc > i + 1 && argv[i + 1][0] != '-')
-            {
-                i++;
+				flags_cp++;
+			}
+			else // label
+			{
+            	lv_labels[lv_cp] = argv[i] + 1;
 
-                lv_values[lv_cp] = argv[i];
-            }
-            else
-            {
-                lv_values[lv_cp] = NULL;
-            }
+            	if (argc > i + 1 && argv[i + 1][0] != '-')
+            	{
+                	i++;
 
-            lv_cp++;
+                	lv_values[lv_cp] = argv[i];
+            	}
+            	else
+            	{
+                	lv_values[lv_cp] = NULL;
+            	}
+
+            	lv_cp++;
+			}
         }
         else // not labelled
         {
@@ -65,6 +77,16 @@ carg_parse_data* carg_parse(int argc, char** argv)
         data->lv_values = NULL;
     }
 
+	data->flags_len = flags_cp;
+	if (flags_cp > 0)
+	{
+		data->flags = realloc(flags, sizeof(char*) * flags_cp);
+	}
+	else
+	{
+		data->flags = NULL;
+	}
+
     return data;
 }
 
@@ -83,6 +105,11 @@ void carg_parse_free(carg_parse_data* data)
     {
         free(data->lv_values);
     }
+	
+	if (data->flags != NULL)
+	{
+		free(data->flags);
+	}
 
     free(data);
 }
