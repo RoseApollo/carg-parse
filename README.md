@@ -19,7 +19,10 @@ typedef struct
 
     uint32_t lv_len;
     char** lv_labels;
-    char** lv_values;
+	char** lv_values;
+
+	uint32_t flags_len;
+	char** flags;
 } carg_parse_data;
 ```
 
@@ -27,7 +30,7 @@ Values is an array of all of the free standing arguments passed in
 
 LV is a dictionary, labels in lv_labels and values in lv_values, it contains any labeled arguments '-a b', if a value is not provided lv_value will point to NULL
 
-values and lv_values both point to argv, and lv_labels points to argv + 1, as to ignore the dash('-')
+values, lv_values and flags all point to argv, lv_labels points to argv + 1, as to ignore the dash ('-'), and flags does the same except + 2 as to ignore the double dash ('--')
 
 when done with the data, call
 `carg_parse_free(carg_parse_data* data)`
