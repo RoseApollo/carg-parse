@@ -92,24 +92,10 @@ carg_parse_data* carg_parse(int argc, char** argv)
 
 void carg_parse_free(carg_parse_data* data)
 {
-    if (data->values != NULL)
-    {
-        free(data->values);
-    }
-    
-    if (data->lv_labels != NULL)
-    {
-        free(data->lv_labels);
-    }
-    if (data->lv_values != NULL)
-    {
-        free(data->lv_values);
-    }
-	
-	if (data->flags != NULL)
-	{
-		free(data->flags);
-	}
+    free(data->values);
+    free(data->lv_labels);
+    free(data->lv_values);
+    free(data->flags);
 
     free(data);
 }
