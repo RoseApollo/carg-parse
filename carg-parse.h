@@ -1,7 +1,7 @@
 // c argument parser - Rose (github.com/AUnicornWithNoLife)
 
-#ifndef CARG_PARSE
-#define CARG_PARSE
+#ifndef LIB_CARG_PARSE
+#define LIB_CARG_PARSE
 
 #include <stdint.h>
 
