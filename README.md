@@ -1,6 +1,6 @@
 # carg-parse
 
-Basic C library to easily parse arguments
+Basic dependency free C library to easily parse arguments
 
 # Usage
 
